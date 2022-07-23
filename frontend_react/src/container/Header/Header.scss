@@ -47,6 +47,12 @@
 		width: 100%;
 		margin-right: 0rem;
 	}
+
+	@media screen and (min-width: 600px) and (max-width: 1200px) {
+		position: absolute;
+		padding: 6rem 1rem 2rem;
+		z-index: 10;
+	}
 }
 
 .app__header-badge {
@@ -63,7 +69,7 @@
 		border-radius: 15px;
 		flex-direction: row;
 		width: auto;
-
+		background: url("../../assets/bgIMG.png");
 		box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 	}
 
@@ -159,7 +165,7 @@
 	height: 100%;
 
 	display: flex;
-	justify-content: flex-end;
+	justify-content: center;
 	align-items: flex-end;
 	position: relative;
 
@@ -167,19 +173,29 @@
 		width: 100%;
 		object-fit: contain;
 		z-index: 1;
+
+		&[alt="profile_bg"] {
+			width: 80%;
+
+			padding: 4rem 0;
+
+			@media screen and (max-width: 1200px) {
+				width: 100%;
+			}
+		}
 	}
 
 	.overlay_circle {
 		position: absolute;
-		left: 0;
+		left: -150px;
 		right: 0;
 		bottom: 0;
 		z-index: 0;
 		width: 100%;
-		height: 90%;
+		height: 55%;
 	}
 
 	@media screen and (max-width: 1200px) {
-		margin: 2rem 0;
+		justify-content: flex-end;
 	}
 }
