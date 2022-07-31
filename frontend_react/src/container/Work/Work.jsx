@@ -28,11 +28,13 @@ const Work = () => {
 	}, []);
 
 	const alignCenter = () => {
-		filterWork.length < 4 ? setDrag(false) : setDrag(true);
+		let lengthForSlider = Math.ceil(window.innerWidth / 270);
+		console.log(lengthForSlider);
+		filterWork.length < lengthForSlider ? setDrag(false) : setDrag(true);
 		let matrix = new DOMMatrix(
 			window.getComputedStyle(document.querySelector(".inner-carousel")).transform,
 		);
-		return filterWork.length < 4
+		return filterWork.length < lengthForSlider
 			? { alignSelf: "center", position: "relative", left: `${Math.abs(matrix.e)}px` }
 			: { alignSelf: "flex-start" };
 	};
