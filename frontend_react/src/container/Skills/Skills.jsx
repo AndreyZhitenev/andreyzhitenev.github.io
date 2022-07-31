@@ -34,11 +34,11 @@ const Skills = () => {
 	}, []);
 
 	experiencesEn.sort((a, b) => {
-		return b.year.split("-")[0] - a.year.split("-")[1];
+		return b.year.split("-")[0] - a.year.split("-")[0];
 	});
 
 	experiencesRu.sort((a, b) => {
-		return b.year.split("-")[0] - a.year.split("-")[1];
+		return b.year.split("-")[0] - a.year.split("-")[0];
 	});
 
 	return (

@@ -48,7 +48,6 @@ const Work = () => {
 	useEffect(() => {
 		document.querySelector(".inner-carousel").style.transform = "translateX(0)";
 		document.querySelector(".inner-carousel").style.left = "0";
-		console.log(document.querySelector(".inner-carousel").style.transform);
 	}, [resetTransform]);
 
 	const handleWorkFilter = (item) => {
