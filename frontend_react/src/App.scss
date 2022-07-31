@@ -128,9 +128,13 @@
 
 		transition: all 0.3s ease-in-out;
 
+		a {
+			line-height: 0px;
+		}
+
 		svg {
-			width: 15px;
-			height: 15px;
+			width: 20px;
+			height: 20px;
 			color: var(--gray-color);
 		}
 
@@ -188,6 +192,15 @@
 	}
 }
 
+._2690c {
+	overflow: hidden;
+}
+
+._1X2N_ {
+	height: auto;
+	min-height: 100vh;
+}
+
 ._3klkV {
 	font-size: 0.8rem;
 	color: #cbcbcb;
@@ -199,6 +212,12 @@
 ._3klkV._3sodH {
 	font-size: 1.2rem;
 	color: var(--secondary-color);
+}
+
+@media screen and (max-width: 1000px) {
+	._3cHdp {
+		overflow: hidden;
+	}
 }
 
 @media screen and (max-width: 500px) {

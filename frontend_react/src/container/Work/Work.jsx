@@ -1,17 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { AiFillEye, AiFillGithub } from "react-icons/ai";
 import { motion } from "framer-motion";
-
+import { useTranslation } from "react-i18next";
 import { AppWrap, MotionWrap } from "../../wrapper";
 import { urlFor, client } from "../../client";
 
 import "./Work.scss";
 
 const Work = () => {
+	const { t } = useTranslation();
 	const [activeFilter, setActiveFilter] = useState("All");
 	const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
 	const [works, setWorks] = useState([]);
 	const [filterWork, setFilterWork] = useState([]);
+	const [width, setWidth] = useState(0);
+	const [alignStyle, setAlignStyle] = useState();
+	const [drag, setDrag] = useState(true);
+	const carousel = useRef();
 
 	useEffect(() => {
 		const query = '*[_type == "works"]';
@@ -21,6 +26,21 @@ const Work = () => {
 			setFilterWork(data);
 		});
 	}, []);
+
+	const alignCenter = () => {
+		filterWork.length < 4 ? setDrag(false) : setDrag(true);
+		let matrix = new DOMMatrix(
+			window.getComputedStyle(document.querySelector(".inner-carousel")).transform,
+		);
+		return filterWork.length < 4
+			? { alignSelf: "center", position: "relative", left: `${Math.abs(matrix.e)}px` }
+			: { alignSelf: "flex-start" };
+	};
+
+	useEffect(() => {
+		setWidth(carousel.current.offsetWidth - window.innerWidth);
+		setAlignStyle(alignCenter());
+	}, [filterWork]);
 
 	const handleWorkFilter = (item) => {
 		setActiveFilter(item);
@@ -39,12 +59,9 @@ const Work = () => {
 
 	return (
 		<>
-			<h2 className="head-text">
-				My Creative <span>Portfolio</span> Section
-			</h2>
-
+			<h2 className="head-text">{t("work-title")}</h2>
 			<div className="app__work-filter">
-				{["UI/UX", "Web App", "Mobile App", "React JS", "All"].map((item, index) => (
+				{["React", "Vue", "Vanilla JS", "All"].map((item, index) => (
 					<div
 						key={index}
 						onClick={() => handleWorkFilter(item)}
@@ -57,11 +74,15 @@ const Work = () => {
 			</div>
 
 			<motion.div
+				ref={carousel}
 				animate={animateCard}
-				transition={{ duration: 0.5, delayChildren: 0.5 }}
-				className="app__work-portfolio">
+				transition={{ duration: 0.3, delayChildren: 0.3 }}
+				className="app__work-portfolio inner-carousel"
+				drag={drag && "x"}
+				dragConstraints={drag && { right: 0, left: -width }}
+				style={alignStyle}>
 				{filterWork.map((work, index) => (
-					<div className="app__work-item app__flex" key={index}>
+					<motion.div className="app__work-item app__flex item" key={index}>
 						<div className="app__work-img app__flex">
 							<img src={urlFor(work.imgUrl)} alt={work.name} />
 
@@ -103,9 +124,27 @@ const Work = () => {
 								<p className="p-text">{work.tags[0]}</p>
 							</div>
 						</div>
-					</div>
+					</motion.div>
 				))}
 			</motion.div>
+			{drag && (
+				<div className="arrowCarousel">
+					<svg
+						width="47"
+						height="47"
+						viewBox="0 0 47 47"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg">
+						<circle cx="23.5" cy="23.5" r="23.5" fill="white" />
+						<path
+							fillRule="evenodd"
+							clipRule="evenodd"
+							d="M16.5272 7.52069C17.2301 6.82644 18.3698 6.82644 19.0727 7.52069L33.4728 21.743C34.1757 22.4373 34.1757 23.5628 33.4728 24.257L19.0727 38.4793C18.3698 39.1736 17.2301 39.1736 16.5272 38.4793C15.8243 37.785 15.8243 36.6596 16.5272 35.9653L29.6544 23L16.5272 10.0349C15.8243 9.3406 15.8243 8.21495 16.5272 7.52069Z"
+							fill="#313BAC"
+						/>
+					</svg>
+				</div>
+			)}
 		</>
 	);
 };

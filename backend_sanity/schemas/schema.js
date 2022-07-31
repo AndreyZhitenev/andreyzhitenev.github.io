@@ -5,7 +5,8 @@ import works from "./works";
 import testimonials from "./testimonials";
 import brands from "./brands";
 import abouts from "./abouts";
-import experiences from "./experiences";
+import experiences_en from "./experiences_en";
+import experiences_ru from "./experiences_ru";
 import skills from "./skills";
 import workExperience from "./workExperience";
 import contact from "./contact";
@@ -18,7 +19,8 @@ export default createSchema({
 		abouts,
 		skills,
 		workExperience,
-		experiences,
+		experiences_en,
+		experiences_ru,
 		contact,
 	]),
 });

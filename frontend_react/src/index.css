@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
 
 :root {
-	--font-base: "DM Sans", sans-serif;
+	--font-base: "Inter", sans-serif;
 
 	--primary-color: #edf2f8;
 	--secondary-color: #313bac;
@@ -12,9 +12,19 @@
 	--white-color: #ffffff;
 }
 
+body {
+	overflow-x: hidden;
+}
+
 * {
 	box-sizing: border-box;
 	padding: 0;
 	margin: 0;
 	scroll-behavior: smooth;
+}
+
+@media screen and (max-width: 768px) {
+	* {
+		cursor: none !important;
+	}
 }

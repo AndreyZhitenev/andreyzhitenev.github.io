@@ -2,6 +2,31 @@
 	flex: 1;
 	width: 100%;
 	flex-direction: column;
+	position: relative;
+}
+
+.arrowCarousel {
+	position: absolute;
+	right: 3vw;
+	bottom: 26vh;
+	animation: move 1s infinite;
+
+	svg {
+		border-radius: 50%;
+		box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
+	}
+}
+
+@keyframes move {
+	0% {
+		transform: translateX(0);
+	}
+	50% {
+		transform: translateX(10px);
+	}
+	100% {
+		transform: translateX(0);
+	}
 }
 
 .app__work-filter {
@@ -41,9 +66,10 @@
 
 .app__work-portfolio {
 	display: flex;
-	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
+
+	cursor: grab;
 
 	.app__work-item {
 		width: 270px;
@@ -53,7 +79,7 @@
 		border-radius: 0.5rem;
 		background-color: var(--primary-color);
 		color: #000;
-		cursor: pointer;
+		cursor: grab;
 		transition: all 0.3s ease;
 
 		&:hover {

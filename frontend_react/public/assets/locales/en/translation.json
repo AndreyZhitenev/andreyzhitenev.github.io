@@ -1,0 +1,21 @@
+{
+	"app_title": "Portfolio Page",
+	"hello": "Hello, I am",
+	"name": "Andrey",
+	"frontdev": "Frontend Developer",
+	"designer": "Graphic Designer",
+	"home": "home",
+	"work": "work",
+	"skills": "skills",
+	"contact": "contact",
+	"work-title": "My Creative Portfolio Section",
+	"skills_exp": "Skills & Experiences",
+	"footer-h2": "Contact Me",
+	"send-message": "or Send Message:",
+	"your-name": "Your Name",
+	"your-email": "Your Email",
+	"your-message": "Your Message",
+	"sending": "Sending",
+	"send-message-btn": "Send Message",
+	"thanks": "Thank you for getting in touch!"
+}

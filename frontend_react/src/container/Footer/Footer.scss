@@ -3,6 +3,14 @@
 	width: 100%;
 	flex-direction: column;
 
+	.head-text {
+		margin-bottom: 20px;
+	}
+
+	.sub-text {
+		font-size: 1.5em;
+	}
+
 	@media screen and (max-width: 768px) {
 		flex-direction: column;
 	}
@@ -14,10 +22,10 @@
 	justify-content: space-evenly;
 	align-items: center;
 	flex-wrap: wrap;
-	margin: 4em 2rem 2rem;
+	margin: 0 2rem 30px;
 
 	.app__footer-card {
-		min-width: 290px;
+		min-width: 150px;
 		display: flex;
 		flex-direction: row;
 		justify-content: flex-start;
@@ -27,14 +35,15 @@
 		padding: 1rem;
 		border-radius: 10px;
 		cursor: pointer;
-		background-color: #fef4f5;
+		background-color: #f2f7fb;
 
 		transition: all 0.3s ease-in-out;
 
-		img {
+		svg {
 			width: 40px;
 			height: 40px;
 			margin: 0 0.7rem;
+			color: var(--secondary-color);
 		}
 
 		p {
@@ -43,27 +52,22 @@
 		a {
 			text-decoration: none;
 			font-weight: 500;
+			font-size: 14px;
+			display: flex;
+			align-items: center;
 		}
 		&:hover {
-			box-shadow: 0 0 25px #fef4f5;
+			box-shadow: 0 0 25px #f2f7fb;
 		}
 
 		@media screen and (max-width: 450px) {
-			width: 100%;
+			width: 10%;
 		}
 	}
 
 	@media screen and (max-width: 768px) {
 		width: 100%;
 	}
-}
-
-.app__footer-cards .app__footer-card:last-child {
-	background-color: #f2f7fb;
-}
-
-.app__footer-cards .app__footer-card:last-child:hover {
-	box-shadow: 0 0 25px #f2f7fb;
 }
 
 .app__footer-form {

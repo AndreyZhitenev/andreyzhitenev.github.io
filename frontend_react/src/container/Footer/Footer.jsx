@@ -3,9 +3,12 @@ import React, { useState } from "react";
 import { images } from "../../constants";
 import { AppWrap, MotionWrap } from "../../wrapper";
 import { urlFor, client } from "../../client";
+import { useTranslation } from "react-i18next";
 import "./Footer.scss";
+import { BsGithub, BsLinkedin, BsTelegram, BsEnvelopeFill } from "react-icons/bs";
 
 const Footer = () => {
+	const { t } = useTranslation();
 	const [formData, setFormData] = useState({
 		name: "",
 		email: "",
@@ -40,29 +43,46 @@ const Footer = () => {
 
 	return (
 		<>
-			<h2 className="head-text">Take a coffee & chat with me</h2>
+			<h2 className="head-text">{t("footer-h2")}</h2>
 			<div className="app__footer-cards">
 				<div className="app__footer-card">
-					<img src={images.email} alt="email" />
-					<a href="mailto:zhitenev.andr@gmail.com" className="p-text">
-						zhitenev.andr@gmail.com
+					<a href="https://t.me/azhitenev" target="_blank" rel="noreferrer" className="p-text">
+						<BsTelegram />
+						Telegram
 					</a>
 				</div>
 				<div className="app__footer-card">
-					<img src={images.mobile} alt="mobile" />
-					<a href="tel: +7 (999) 999-99-99" className="p-text">
-						+7 (999) 999-99-99
+					<a href="https://github.com/twiar" target="_blank" rel="noreferrer" className="p-text">
+						<BsGithub />
+						Github
+					</a>
+				</div>
+				<div className="app__footer-card">
+					<a
+						href="https://www.linkedin.com/in/andrey-zhitenev-2494a517b/"
+						target="_blank"
+						rel="noreferrer"
+						className="p-text">
+						<BsLinkedin />
+						LinkedIn
+					</a>
+				</div>
+				<div className="app__footer-card">
+					<a href="mailto:zhitenev.andr@gmail.com" className="p-text">
+						<BsEnvelopeFill />
+						E-mail
 					</a>
 				</div>
 			</div>
 
+			<h3 className="sub-text">{t("send-message")}</h3>
 			{!isFormSubmitted ? (
 				<div className="app__footer-form app__flex">
 					<div className="app__flex">
 						<input
 							className="p-text"
 							type="text"
-							placeholder="Your Name"
+							placeholder={t("your-name")}
 							name="name"
 							value={name}
 							onChange={handleChangeInput}
@@ -72,7 +92,7 @@ const Footer = () => {
 						<input
 							className="p-text"
 							type="email"
-							placeholder="Your Email"
+							placeholder={t("your-email")}
 							name="email"
 							value={email}
 							onChange={handleChangeInput}
@@ -81,19 +101,19 @@ const Footer = () => {
 					<div>
 						<textarea
 							className="p-text"
-							placeholder="Your Message"
+							placeholder={t("your-message")}
 							value={message}
 							name="message"
 							onChange={handleChangeInput}
 						/>
 					</div>
 					<button type="button" className="p-text" onClick={handleSubmit}>
-						{loading ? "Sending" : "Send Message"}
+						{loading ? t("sending") : t("send-message-btn")}
 					</button>
 				</div>
 			) : (
 				<div>
-					<h3 className="head-text">Thank you for getting in touch!</h3>
+					<h3 className="head-text">{t("thanks")}</h3>
 				</div>
 			)}
 		</>
