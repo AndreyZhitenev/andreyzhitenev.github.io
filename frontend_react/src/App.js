@@ -1,19 +1,33 @@
 import React from "react";
+import "./index.css";
 
-import { About, Footer, Header, Skills, Testimonial, Work } from "./container";
-import { Navbar } from "./components";
+import { Footer, Header, Skills, Work } from "./container";
+import { Navbar, SocialMedia } from "./components";
+
+import { FullPageContainer, FullPagePanel } from "fullpage-react-fs";
+import "fullpage-react-fs/dist/index.css";
 import "./App.scss";
 
 const App = () => {
 	return (
 		<div className="app">
+			<SocialMedia />
+
 			<Navbar />
-			<Header />
-			<About />
-			<Work />
-			<Skills />
-			<Testimonial />
-			<Footer />
+			<FullPageContainer showIndicators={true}>
+				<FullPagePanel>
+					<Header />
+				</FullPagePanel>
+				<FullPagePanel>
+					<Work />
+				</FullPagePanel>
+				<FullPagePanel>
+					<Skills />
+				</FullPagePanel>
+				<FullPagePanel>
+					<Footer />
+				</FullPagePanel>
+			</FullPageContainer>
 		</div>
 	);
 };

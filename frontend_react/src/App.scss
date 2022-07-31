@@ -1,6 +1,12 @@
 .app {
 	background-color: var(--primary-color);
 	font-family: var(--font-base);
+
+	div[class$="_"] {
+		div:not([class]) {
+			width: 100%;
+		}
+	}
 }
 
 .app__whitebg {
@@ -19,7 +25,7 @@
 	flex-direction: row;
 }
 
-.app__flex {
+.app__container .app__flex {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -102,7 +108,10 @@
 	justify-content: flex-end;
 	align-items: center;
 	flex-direction: column;
-
+	position: fixed;
+	z-index: 1;
+	left: 5px;
+	bottom: 0;
 	padding: 1rem;
 
 	div {
@@ -153,7 +162,10 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-
+	position: fixed;
+	z-index: 1;
+	right: 20px;
+	top: 43vh;
 	padding: 1rem;
 
 	.app__navigation-dot {
@@ -174,6 +186,19 @@
 			height: 20px;
 		}
 	}
+}
+
+._3klkV {
+	font-size: 0.8rem;
+	color: #cbcbcb;
+	&:hover:not(._3sodH) {
+		font-size: 1.2rem;
+	}
+}
+
+._3klkV._3sodH {
+	font-size: 1.2rem;
+	color: var(--secondary-color);
 }
 
 @media screen and (max-width: 500px) {
