@@ -13,12 +13,13 @@
 
 	@media screen and (max-width: 900px) {
 		height: 60px;
-	}
-
-	@media screen and (max-width: 900px) {
 		.language-select {
 			display: none;
 		}
+	}
+
+	@media screen and (max-width: 400px) {
+		padding: 1rem;
 	}
 }
 
@@ -38,6 +39,10 @@
 		@media screen and (min-width: 2000px) {
 			width: 250px;
 			height: 50px;
+		}
+
+		@media screen and (max-width: 400px) {
+			width: 30vw;
 		}
 	}
 }
