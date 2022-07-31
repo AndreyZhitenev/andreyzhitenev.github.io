@@ -15,6 +15,7 @@ const Work = () => {
 	const [filterWork, setFilterWork] = useState([]);
 	const [width, setWidth] = useState(0);
 	const [alignStyle, setAlignStyle] = useState();
+	const [resetTransform, setResetTransform] = useState(true);
 	const [drag, setDrag] = useState(true);
 	const carousel = useRef();
 
@@ -29,7 +30,6 @@ const Work = () => {
 
 	const alignCenter = () => {
 		let lengthForSlider = Math.ceil(window.innerWidth / 270);
-		console.log(lengthForSlider);
 		filterWork.length < lengthForSlider ? setDrag(false) : setDrag(true);
 		let matrix = new DOMMatrix(
 			window.getComputedStyle(document.querySelector(".inner-carousel")).transform,
@@ -42,7 +42,14 @@ const Work = () => {
 	useEffect(() => {
 		setWidth(carousel.current.offsetWidth - window.innerWidth);
 		setAlignStyle(alignCenter());
+		setResetTransform(true);
 	}, [filterWork]);
+
+	useEffect(() => {
+		document.querySelector(".inner-carousel").style.transform = "translateX(0)";
+		document.querySelector(".inner-carousel").style.left = "0";
+		console.log(document.querySelector(".inner-carousel").style.transform);
+	}, [resetTransform]);
 
 	const handleWorkFilter = (item) => {
 		setActiveFilter(item);
@@ -79,12 +86,22 @@ const Work = () => {
 				ref={carousel}
 				animate={animateCard}
 				transition={{ duration: 0.3, delayChildren: 0.3 }}
-				className="app__work-portfolio inner-carousel"
+				className={
+					resetTransform
+						? "app__work-portfolio inner-carousel resetTransform"
+						: "app__work-portfolio inner-carousel"
+				}
 				drag={drag && "x"}
 				dragConstraints={drag && { right: 0, left: -width }}
-				style={alignStyle}>
+				style={alignStyle}
+				onMouseLeave={() => setResetTransform(false)}
+				onMouseDown={() => setResetTransform(false)}>
 				{filterWork.map((work, index) => (
-					<motion.div className="app__work-item app__flex item" key={index}>
+					<motion.div
+						className="app__work-item app__flex item"
+						key={index}
+						onMouseLeave={() => setResetTransform(false)}
+						onMouseDown={() => setResetTransform(false)}>
 						<div className="app__work-img app__flex">
 							<img src={urlFor(work.imgUrl)} alt={work.name} />
 

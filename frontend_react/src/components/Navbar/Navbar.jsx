@@ -41,7 +41,6 @@ const Navbar = () => {
 			<div className="language-select">
 				<ul>
 					{languages.map(({ code, name, country_code }) => {
-						console.log(currentLanguageCode, country_code);
 						return (
 							<a
 								href="#"
@@ -81,7 +80,6 @@ const Navbar = () => {
 					<div className="language-select">
 						<ul>
 							{languages.map(({ code, name, country_code }) => {
-								console.log(currentLanguageCode, country_code);
 								return (
 									<a
 										href="#"

@@ -176,3 +176,8 @@
 		top: -25px;
 	}
 }
+
+.resetTransform {
+	transform: translateX(0) !important;
+	left: 0 !important;
+}
