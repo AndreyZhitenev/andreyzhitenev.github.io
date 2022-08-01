@@ -6,6 +6,7 @@ import cookies from "js-cookie";
 
 import { images } from "../../constants";
 import "./Navbar.scss";
+import SocialMedia from "../SocialMedia";
 
 const languages = [
 	{
@@ -110,6 +111,7 @@ const Navbar = () => {
 							</li>
 						))}
 					</ul>
+					<SocialMedia />
 				</div>
 			</div>
 		</nav>

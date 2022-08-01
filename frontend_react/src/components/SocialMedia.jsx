@@ -1,5 +1,5 @@
 import React from "react";
-import { BsGithub, BsLinkedin, BsTelegram } from "react-icons/bs";
+import { BsBehance, BsGithub, BsLinkedin, BsTelegram } from "react-icons/bs";
 
 const SocialMedia = () => {
 	return (
@@ -20,6 +20,11 @@ const SocialMedia = () => {
 					target="_blank"
 					rel="noreferrer">
 					<BsLinkedin />
+				</a>
+			</div>
+			<div>
+				<a href="https://www.behance.net/zhitenev_andr/" target="_blank" rel="noreferrer">
+					<BsBehance />
 				</a>
 			</div>
 		</div>

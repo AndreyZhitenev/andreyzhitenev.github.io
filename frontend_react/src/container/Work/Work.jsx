@@ -93,14 +93,12 @@ const Work = () => {
 				drag={drag && "x"}
 				dragConstraints={drag && { right: 0, left: -width }}
 				style={alignStyle}
-				onMouseLeave={() => setResetTransform(false)}
-				onMouseDown={() => setResetTransform(false)}>
+				onClick={() => setResetTransform(false)}>
 				{filterWork.map((work, index) => (
 					<motion.div
 						className="app__work-item app__flex item"
 						key={index}
-						onMouseLeave={() => setResetTransform(false)}
-						onMouseDown={() => setResetTransform(false)}>
+						onClick={() => setResetTransform(false)}>
 						<div className="app__work-img app__flex">
 							<img src={urlFor(work.imgUrl)} alt={work.name} />
 
