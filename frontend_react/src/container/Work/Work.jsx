@@ -25,30 +25,33 @@ const Work = () => {
 		client.fetch(query).then((data) => {
 			setWorks(data);
 			setFilterWork(data);
+			setTimeout(() => {
+				document.querySelectorAll('.app__work-item').forEach((el) => el.click());
+			}, 1000);
 		});
 	}, []);
 
-	const alignCenter = () => {
-		let lengthForSlider = Math.ceil(window.innerWidth / 270);
-		filterWork.length < lengthForSlider ? setDrag(false) : setDrag(true);
-		let matrix = new DOMMatrix(
-			window.getComputedStyle(document.querySelector(".inner-carousel")).transform,
-		);
-		return filterWork.length < lengthForSlider
-			? { alignSelf: "center", position: "relative", left: `${Math.abs(matrix.e)}px` }
-			: { alignSelf: "flex-start" };
-	};
+	// const alignCenter = () => {
+	// 	let lengthForSlider = Math.ceil(window.innerWidth / 270);
+	// 	filterWork.length < lengthForSlider ? setDrag(false) : setDrag(true);
+	// 	let matrix = new DOMMatrix(
+	// 		window.getComputedStyle(document.querySelector(".inner-carousel")).transform,
+	// 	);
+	// 	return filterWork.length < lengthForSlider
+	// 		? { alignSelf: "center", position: "relative", left: `${Math.abs(matrix.e)}px` }
+	// 		: { alignSelf: "flex-start" };
+	// };
 
-	useEffect(() => {
-		setWidth(carousel.current.offsetWidth - window.innerWidth);
-		setAlignStyle(alignCenter());
-		setResetTransform(true);
-	}, [filterWork]);
+	// useEffect(() => {
+	// 	setWidth(carousel.current.offsetWidth - window.innerWidth);
+	// 	setAlignStyle(alignCenter());
+	// 	setResetTransform(true);
+	// }, [filterWork]);
 
-	useEffect(() => {
-		document.querySelector(".inner-carousel").style.transform = "translateX(0)";
-		document.querySelector(".inner-carousel").style.left = "0";
-	}, [resetTransform]);
+	// useEffect(() => {
+	// 	document.querySelector(".inner-carousel").style.transform = "translateX(0)";
+	// 	document.querySelector(".inner-carousel").style.left = "0";
+	// }, [resetTransform]);
 
 	const handleWorkFilter = (item) => {
 		setActiveFilter(item);
@@ -143,7 +146,7 @@ const Work = () => {
 					</motion.div>
 				))}
 			</motion.div>
-			{drag && (
+			{/* {drag && (
 				<div className="arrowCarousel">
 					<svg
 						width="47"
@@ -160,7 +163,7 @@ const Work = () => {
 						/>
 					</svg>
 				</div>
-			)}
+			)} */}
 		</>
 	);
 };

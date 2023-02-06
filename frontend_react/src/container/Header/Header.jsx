@@ -58,7 +58,7 @@ const Header = () => {
 				variant={scaleVariants}
 				whileInView={scaleVariants.whileInView}
 				className="app__header-circles">
-				{[images.typescript, images.react, images.vue, images.figma].map((circle, index) => (
+				{[images.typescript, images.vue, images.react, images.figma].map((circle, index) => (
 					<div className="circle-cmp app__flex" key={`circle-${index}`}>
 						<img src={circle} alt="circle" />
 					</div>

@@ -46,7 +46,7 @@ const Footer = () => {
 			<h2 className="head-text">{t("footer-h2")}</h2>
 			<div className="app__footer-cards">
 				<div className="app__footer-card">
-					<a href="https://t.me/azhitenev" target="_blank" rel="noreferrer" className="p-text">
+					<a href="https://t.me/kraavc" target="_blank" rel="noreferrer" className="p-text">
 						<BsTelegram />
 						Telegram
 					</a>
