@@ -68,7 +68,7 @@ const Footer = () => {
 					</a>
 				</div>
 				<div className="app__footer-card">
-					<a href="mailto:zhitenev.andr@gmail.com" className="p-text">
+					<a href="mailto:andr.krawtsow2014@gmail.com" className="p-text">
 						<BsEnvelopeFill />
 						E-mail
 					</a>
